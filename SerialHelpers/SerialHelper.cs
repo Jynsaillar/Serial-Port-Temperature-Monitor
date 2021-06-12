@@ -8,9 +8,17 @@ namespace Serial_Port_Temperature_Monitor.SerialHelpers
 {
     public class SerialHelper
     {
+        public string[] AvailablePorts { get; private set; }
+
         private
-        public SerialHelper()
+        SerialHelper()
         {
+        }
+
+        public string[] GetAvailablePorts()
+        {
+            AvailablePorts = SerialPort.GetPortNames();
+            return AvailablePorts;
         }
     }
 }
